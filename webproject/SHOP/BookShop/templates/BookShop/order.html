@@ -1,0 +1,23 @@
+{% extends "BookShop/layout.html" %}
+{% block body %}
+
+<div class="container">
+    <h2>Order Summary</h2>
+
+    <ul class="list">
+        {% for p in products %}
+            <li class="list-item">
+                {{ p.product.name }} — {{ p.amount }} pcs
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h3 class="total">Total: {{ total }} SAR</h3>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button class="button">Confirm Order</button>
+    </form>
+</div>
+
+{% endblock %}

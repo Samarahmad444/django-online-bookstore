@@ -1,0 +1,28 @@
+{% extends "BookShop/layout.html" %}
+{% load static %}
+{% block body %}     
+<img src="{% static 'BookShop/logo.jpg' %}" class="logo-center"  alt="BookShop Logo" width="200">
+<h2>BookShop Login</h2>
+
+
+<form action="{% url 'BookShop:login' %}" method="post">
+{% csrf_token %}       
+<input type="text"  name="username" placeholder="Username" required class="input">
+<input type="password" name="password" placeholder="Password" required class="input">
+<button type="submit" class="button">Login</button>
+</form>
+
+{% if message %} 
+<div class='mes' style="color: red; margin: 10px 0;">{{ message }}</div>
+{% endif %}
+{% if messages %} 
+    {% for msg in messages %}
+    <div class='mes' style="color: green; margin: 10px 0;">{{ msg }}</div>
+    {% endfor %}
+{% endif %}
+
+<p>Don't have an account? 
+<a href="{% url 'BookShop:registeration' %}" class="link">Register here</a>
+</p>
+
+{% endblock %}

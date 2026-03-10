@@ -1,0 +1,31 @@
+{% extends "BookShop/layout.html" %}
+
+{% block body %}     
+<h2>All Products</h2>
+{% for message in messages %}
+   <div style="color: red; background-color: pink;text-align: center;">
+        {{ message }}
+    </div>
+  {% endfor %} 
+<table class="table">
+    <thead>
+        <tr>
+        <th>Image</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+        <td><img src="{{ product.image }}" width="80" height="80"></td>
+        <td>{{ product.name }}</td>
+        <td>SR{{ product.price }}</td>
+        <td><a href="{% url 'BookShop:product_detail' product.id %}" class="link">View Details</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

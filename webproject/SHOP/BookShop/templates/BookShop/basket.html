@@ -1,0 +1,44 @@
+{% extends "BookShop/layout.html" %}
+{% block body %}
+<div class="container">
+<h2>Your Basket</h2>
+<table class="table">
+    <tr>
+        <th>Product</th><th>Price</th><th>Amount</th><th>Total</th><th>Action</th>
+    </tr>
+    {% for p in products %}
+    <tr>
+        <td>{{ p.product.name }}</td>
+        <td>{{ p.product.price }} SAR</td>
+        <td>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="item_id" value="{{ p.id }}" class="input">
+                <input type="number" name="amount" value="{{ p.amount }}" min="1" class="input">
+                <button type="submit" class="button">Save</button>
+            </form>
+        </td>
+        <td>{{p.cost}}</td>
+        <td>
+            <a href="{% url 'BookShop:delete' p.id %}" class="link">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Total: {{ total }} SAR</h3>
+{% if message %} 
+<div style="color: red; background-color: pink;text-align: center;">{{ message }}</div>
+{% endif %}
+{% if messages %}
+  {% for message in messages %}
+   <div style="color: green; background-color: lightgreen;text-align: center;">
+        {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+<a href="{% url 'BookShop:empty' %}" class="empty">Empty Basket</a>
+<a href="{% url 'BookShop:order' %}" class="order">Place Order</a>
+
+</div>
+{% endblock %}

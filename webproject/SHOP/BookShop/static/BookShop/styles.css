@@ -1,0 +1,57 @@
+body {
+font-family:sans-serif;
+}
+
+.main-container {
+max-width: 850px; 
+width: 100%;
+}
+
+h2, h3 {
+text-align: center;
+}
+
+.table {
+margin-top: 18px;
+background: #ffffff;
+}
+
+.table thead th {
+background-color: #67a0f6; 
+color: white;
+}
+
+.input{
+width: 100%;
+}
+
+@media (max-width: 770px) {
+.table {
+font-size: 14px;
+}
+
+.navbar-brand {
+font-size: 17px;
+}
+
+.main-container {
+padding: 0 10px;
+}
+}
+
+.logo-center {
+  display: block;
+  margin: 0 auto 20px auto;
+}
+
+a {
+text-decoration: none;
+}
+
+.empty {
+color: red;
+}
+
+.order {
+color: green;
+}

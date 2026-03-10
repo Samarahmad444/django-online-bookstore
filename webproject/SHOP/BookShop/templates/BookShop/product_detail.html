@@ -1,0 +1,19 @@
+{% extends "BookShop/layout.html" %}
+
+{% block body %}     
+<img src="{{ product.image }}">
+<h2>{{ product.name }}</h2>
+<p>{{ product.description }}</p>
+<h4>SR{{ product.price }}</h4>
+            
+<form action="{% url 'BookShop:add_to_cart' product.id %}" method="post">
+{% csrf_token %}
+<label>Amount:</label>
+<input type="number" name="amount" value="1" min="1"> 
+<button type="submit" class="button">Add to Basket</button>
+</form>
+            
+
+<a href="{% url 'BookShop:products' %}" class="link">Back to Products</a>
+<a href="{% url 'BookShop:basket' %}" class="link">Basket</a>
+{% endblock %}
