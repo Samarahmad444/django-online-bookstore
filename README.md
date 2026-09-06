@@ -1,4 +1,4 @@
-Online Bookstore — Web-Based E-Commerce Application
+Online Bookstore — Web-Based E-Commerce Application:
 A Django-based e-commerce web application developed as an online bookstore. The application provides core e-commerce functionality, including user authentication, product browsing, shopping cart management, order processing, and inventory management.
 
 Features:
